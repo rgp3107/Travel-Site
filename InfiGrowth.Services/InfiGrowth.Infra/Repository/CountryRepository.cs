@@ -29,7 +29,7 @@ namespace InfiGrowth.Infra.Repository
 
         public async Task<Country> GetCountryByName(string CountryName)
         {
-            return await _context.Countries.FindAsync(CountryName);
+            return await _context.Countries.Where(x=>x.CountryName.ToLower() == CountryName.ToLower()).FirstAsync();
         }
     }
 }
