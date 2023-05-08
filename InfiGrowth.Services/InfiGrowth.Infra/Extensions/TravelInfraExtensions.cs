@@ -21,6 +21,8 @@ namespace InfiGrowth.Infra.Extensions
 
             builder.AddScoped<DbContext, TravelContext>();
             builder.AddScoped<ICustomerRepository, CustomerRepository>();
+            builder.AddScoped<ICountryRepository, CountryRepository>();
+
             return builder;
         }
 
@@ -35,6 +37,7 @@ namespace InfiGrowth.Infra.Extensions
                 ServiceLifetime.Singleton);
 
             builder.AddTransient<ICustomerRepository, CustomerRepository>();
+            builder.AddTransient<ICountryRepository, CountryRepository>();
             return builder;
 
         }
