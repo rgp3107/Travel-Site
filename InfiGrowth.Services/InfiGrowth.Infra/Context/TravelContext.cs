@@ -24,7 +24,7 @@ namespace InfiGrowth.Infra.Context
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<HotelImage> HotelImages { get; set; }
-      
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
