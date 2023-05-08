@@ -19,8 +19,8 @@ namespace InfiGrowth.Infra.Extensions
             });
             
 
-            builder.AddScoped<DbContext, TravelContext>();        
-            //builder.AddScoped<ICustomerRepository, CustomerRepository>();         
+            builder.AddScoped<DbContext, TravelContext>();
+            builder.AddScoped<ICustomerRepository, CustomerRepository>();
             return builder;
         }
 
@@ -33,8 +33,8 @@ namespace InfiGrowth.Infra.Extensions
             builder.AddDbContext<TravelContext>(
                 options => options.UseSqlServer(connectionString),
                 ServiceLifetime.Singleton);
-          
-            //builder.AddTransient<ICustomerRepository, CustomerRepository>();  
+
+            builder.AddTransient<ICustomerRepository, CustomerRepository>();
             return builder;
 
         }

@@ -16,8 +16,8 @@ namespace InfiGrowth.Entity.Manage
         public Guid BillingId { get; set; }
         [ForeignKey("BillingId")]
         public virtual Billing Billing { get; set; }
-        public DateOnly CheckIn { get; set; }
-        public DateOnly CheckOut { get; set;}
+        public DateTime CheckIn { get; set; }
+        public DateTime CheckOut { get; set;}
 
     }
 }

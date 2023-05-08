@@ -1,5 +1,7 @@
 ﻿using InfiGrowth.Entity.Manage;
+using InfiGrowth.Infra.Context;
 using InfiGrowth.Infra.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +12,15 @@ namespace InfiGrowth.Infra.Repository
 {
     public class CustomerRepository : ICustomerRepository
     {
-        public Task<List<Customer>> GetAllCustomers()
+        private readonly TravelContext _context;
+
+        public CustomerRepository(TravelContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public async Task<List<Customer>> GetAllCustomers()
+        {
+            return await _context.Customers.ToListAsync();
         }
     }
 }

@@ -11,9 +11,9 @@ namespace InfiGrowth.Services.Extensions
         {
             //All service needs to register for Dependency injection
             builder.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            
-            //builder.AddScoped<ICustomerService, CustomerService>();
-            
+
+            builder.AddScoped<ICustomerService, CustomerService>();
+           
             return builder;
         }
     }
