@@ -19,5 +19,8 @@ namespace InfiGrowth.Entity.Manage
         public Guid CountryId { get; set; }
         [ForeignKey("CountryId")]
         public virtual Country country { get; set; }
+        public List<Hotel> Hotels { get; set; }
+        public List<Experience> Experiences { get; set; }
+        public List<CityImage> Images { get; set; }
     }
 }
