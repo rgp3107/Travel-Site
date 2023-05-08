@@ -19,6 +19,7 @@ namespace InfiGrowth.Services.Services
 
         public Task<Customer> CreateCustomer(Customer customer)
         {
+            customer.Id = Guid.NewGuid(); 
             return _customerRepository.CreateCustomer(customer);
         }
 
