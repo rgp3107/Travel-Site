@@ -27,5 +27,10 @@ namespace InfiGrowth.Services.Services
         {
             return _cityRepository.GetAllCities();
         }
+
+        public Task<City> GetCityByName(string city)
+        {
+            return _cityRepository.GetCityByName(city);
+        }
     }
 }
