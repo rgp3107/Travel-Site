@@ -21,6 +21,9 @@ namespace InfiGrowth.Infra.Extensions
 
             builder.AddScoped<DbContext, TravelContext>();
             builder.AddScoped<ICustomerRepository, CustomerRepository>();
+            builder.AddScoped<ICountryRepository, CountryRepository>();
+            builder.AddScoped<IHotelRepository, HotelRepository>();
+
             return builder;
         }
 
@@ -35,6 +38,8 @@ namespace InfiGrowth.Infra.Extensions
                 ServiceLifetime.Singleton);
 
             builder.AddTransient<ICustomerRepository, CustomerRepository>();
+            builder.AddTransient<ICountryRepository, CountryRepository>();
+            builder.AddTransient<IHotelRepository, HotelRepository>();
             return builder;
 
         }
