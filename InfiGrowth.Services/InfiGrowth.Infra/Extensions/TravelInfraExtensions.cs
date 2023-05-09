@@ -22,6 +22,7 @@ namespace InfiGrowth.Infra.Extensions
             builder.AddScoped<DbContext, TravelContext>();
             builder.AddScoped<ICustomerRepository, CustomerRepository>();
             builder.AddScoped<ICountryRepository, CountryRepository>();
+            builder.AddScoped<ICityRepository, CityRepository>();
 
             return builder;
         }
@@ -38,6 +39,7 @@ namespace InfiGrowth.Infra.Extensions
 
             builder.AddTransient<ICustomerRepository, CustomerRepository>();
             builder.AddTransient<ICountryRepository, CountryRepository>();
+            builder.AddTransient<ICityRepository,CityRepository>();
             return builder;
 
         }
