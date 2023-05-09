@@ -33,7 +33,7 @@ namespace InfiGrowth.Infra.Repository
 
         public async Task<List<City>> GetAllCities()
         {
-            return await _context.Cities.ToListAsync();
+            return await _context.Cities.Include(x=>x.country).ToListAsync();
         }
 
         public Task<List<Experience>> GetAllExperienceByCityId(Guid cityId)
