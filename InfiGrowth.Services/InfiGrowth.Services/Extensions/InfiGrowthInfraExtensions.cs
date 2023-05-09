@@ -15,6 +15,8 @@ namespace InfiGrowth.Services.Extensions
             builder.AddScoped<ICustomerService, CustomerService>();
             builder.AddScoped<ICountryService, CountryService>();
             builder.AddScoped<IHotelService, HotelService>();
+            builder.AddScoped<ICityService, CityService>();
+
             return builder;
         }
     }
