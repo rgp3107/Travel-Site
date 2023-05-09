@@ -78,9 +78,16 @@ namespace InfiGrowth.Infra.Repository
             throw new NotImplementedException();
         }
 
-        public Task<List<Hotel>> GetAllHotelsByCityId(Guid cityId)
+        public async Task<List<Hotel>> GetAllHotelsByCityId(Guid cityId)
         {
-            throw new NotImplementedException();
+            return await _context.Hotels.Where(x=>x.CityId == cityId).ToListAsync();
+        }
+
+        public async Task<List<Hotel>> GetAllHotelsByCityName(string cityName)
+        {
+            var city = GetCityByName(cityName).Result;
+            return await _context.Hotels.Where(x=>x.CityId==city.CityId).Take(50).ToListAsync();
+            
         }
 
         public async Task<City> GetCityByName(string city)
