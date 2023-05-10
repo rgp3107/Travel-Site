@@ -47,6 +47,7 @@ namespace InfiGrowth.Infra.Repository
         public async Task<List<City>> GetAllCities()
         {
             //string path = @"E:\skyttus-1\Projects\Travel\tav.json";
+            //string path = @"D:\\tav.json";
             //string json = File.ReadAllText(path);
             //dynamic data = JsonConvert.DeserializeObject(json);
 
@@ -54,6 +55,7 @@ namespace InfiGrowth.Infra.Repository
             //{
             //    var hotel = new Hotel();
             //    hotel.HotelId = Guid.NewGuid();
+            //    hotel.HotelId= Guid.NewGuid();
             //    hotel.HotelName = item.property_name;
             //    hotel.HotelAddress = item.address;
             //    hotel.HotelImage = "https://images.pexels.com/photos/70441/pexels-photo-70441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
@@ -62,6 +64,7 @@ namespace InfiGrowth.Infra.Repository
             //    if (city)
             //    {
             //        var id = _context.Cities.FirstOrDefault(x => x.CityName == (c)).CityId;
+            //        var id = _context.Cities.FirstOrDefault(x=>x.CityName == (c)).CityId;
             //        hotel.CityId = id;
             //        var rnd = new Random();
             //        hotel.HotelPrice = rnd.Next(1000, 10000);
@@ -82,6 +85,14 @@ namespace InfiGrowth.Infra.Repository
         { 
             var city = await _context.Hotels.Where(x=>x.CityId == cityId).ToListAsync();
             return city;
+            
+        }
+
+
+        public async Task<List<Hotel>> GetAllHotelsByCityName(string cityName)
+        {
+            var city = GetCityByName(cityName).Result;
+            return await _context.Hotels.Where(x=>x.CityId==city.CityId).Take(50).ToListAsync();
             
         }
 

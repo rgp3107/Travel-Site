@@ -31,10 +31,17 @@ namespace Travel.API.Controllers
         {
             return Ok(await _cityService.GetCityByName(CityName));
         }
-        [HttpGet("(CityId")]
-        public async Task<IActionResult> GetAllHotelsByCityId(Guid CityId)
+
+
+        [HttpGet("GetAllHotelsByCityName")]
+        public async Task<IActionResult> GetAllHotelsByCityName(string CityName)
         {
-            return Ok(await _cityService.GetAllHotelsByCityId(CityId));
+            return Ok(await _cityService.GetAllHotelsByCityName(CityName));
+        }
+        [HttpGet("GetAllHotelsByCityId")]
+        public async Task<IActionResult> GetAllHotelsByCityId(Guid cityId)
+        {
+            return Ok(await _cityService.GetAllHotelsByCityId(cityId));
         }
     }
 }
