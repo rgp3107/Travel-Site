@@ -55,7 +55,6 @@ namespace InfiGrowth.Infra.Repository
             //{
             //    var hotel = new Hotel();
             //    hotel.HotelId = Guid.NewGuid();
-            //    hotel.HotelId= Guid.NewGuid();
             //    hotel.HotelName = item.property_name;
             //    hotel.HotelAddress = item.address;
             //    hotel.HotelImage = "https://images.pexels.com/photos/70441/pexels-photo-70441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
