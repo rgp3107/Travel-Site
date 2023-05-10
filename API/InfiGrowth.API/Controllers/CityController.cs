@@ -26,5 +26,15 @@ namespace Travel.API.Controllers
         {
             return Ok(await _cityService.CreateCity(city));
         }
+        [HttpGet("{CityName}")]
+        public async Task<IActionResult> GetCityByName(string CityName)
+        {
+            return Ok(await _cityService.GetCityByName(CityName));
+        }
+        [HttpGet("(CityId")]
+        public async Task<IActionResult> GetAllHotelsByCityId(Guid CityId)
+        {
+            return Ok(await _cityService.GetAllHotelsByCityId(CityId));
+        }
     }
 }

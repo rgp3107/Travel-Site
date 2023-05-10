@@ -27,5 +27,15 @@ namespace InfiGrowth.Services.Services
         {
             return _cityRepository.GetAllCities();
         }
+
+        public async Task<List<Hotel>> GetAllHotelsByCityId(Guid cityId)
+        {
+            return await _cityRepository.GetAllHotelsByCityId(cityId);
+        }
+
+        public Task<City> GetCityByName(string city)
+        {
+            return _cityRepository.GetCityByName(city);
+        }
     }
 }
