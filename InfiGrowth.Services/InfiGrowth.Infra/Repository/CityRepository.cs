@@ -90,8 +90,14 @@ namespace InfiGrowth.Infra.Repository
 
         public async Task<List<Hotel>> GetAllHotelsByCityName(string cityName)
         {
-            var city = GetCityByName(cityName).Result;
-            return await _context.Hotels.Where(x=>x.CityId==city.CityId).Take(50).ToListAsync();
+
+            var query = from h in _context.Hotels
+                        join c in _context.Cities on h.CityId equals c.CityId
+                        where c.CityName == cityName
+                        select h ;
+            //var city = GetCityByName(cityName).Result;
+            //return await _context.Hotels.Where(x=>x.CityId==city.CityId).Take(50).ToListAsync();
+            return query.ToList();
             
         }
 

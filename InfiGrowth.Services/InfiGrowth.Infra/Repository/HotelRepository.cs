@@ -1,6 +1,7 @@
 ﻿using InfiGrowth.Entity.Manage;
 using InfiGrowth.Infra.Context;
 using InfiGrowth.Infra.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,6 @@ namespace InfiGrowth.Infra.Repository
         public HotelRepository(TravelContext context) {
             _context = context;
         }
-
         public async Task<Hotel> GetHotelById(Guid HotelId)
         {
             return await _context.Hotels.FindAsync(HotelId);
