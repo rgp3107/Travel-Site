@@ -18,7 +18,5 @@ namespace InfiGrowth.Services.Services.Interfaces
         Task<List<Hotel>> GetAllHotelsByCityName(string city);
 
         Task<List<Hotel>> GetAllHotelsByCityId(Guid cityId);
-
-
     }
 }

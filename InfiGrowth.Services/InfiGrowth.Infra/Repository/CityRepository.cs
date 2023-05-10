@@ -46,6 +46,7 @@ namespace InfiGrowth.Infra.Repository
 
         public async Task<List<City>> GetAllCities()
         {
+            //string path = @"E:\skyttus-1\Projects\Travel\tav.json";
             //string path = @"D:\\tav.json";
             //string json = File.ReadAllText(path);
             //dynamic data = JsonConvert.DeserializeObject(json);
@@ -53,6 +54,7 @@ namespace InfiGrowth.Infra.Repository
             //foreach (var item in data)
             //{
             //    var hotel = new Hotel();
+            //    hotel.HotelId = Guid.NewGuid();
             //    hotel.HotelId= Guid.NewGuid();
             //    hotel.HotelName = item.property_name;
             //    hotel.HotelAddress = item.address;
@@ -61,6 +63,7 @@ namespace InfiGrowth.Infra.Repository
             //    bool city = _context.Cities.Any(x => x.CityName == (c));
             //    if (city)
             //    {
+            //        var id = _context.Cities.FirstOrDefault(x => x.CityName == (c)).CityId;
             //        var id = _context.Cities.FirstOrDefault(x=>x.CityName == (c)).CityId;
             //        hotel.CityId = id;
             //        var rnd = new Random();
@@ -79,9 +82,12 @@ namespace InfiGrowth.Infra.Repository
         }
 
         public async Task<List<Hotel>> GetAllHotelsByCityId(Guid cityId)
-        {
-            return await _context.Hotels.Where(x=>x.CityId == cityId).ToListAsync();
+        { 
+            var city = await _context.Hotels.Where(x=>x.CityId == cityId).ToListAsync();
+            return city;
+            
         }
+
 
         public async Task<List<Hotel>> GetAllHotelsByCityName(string cityName)
         {

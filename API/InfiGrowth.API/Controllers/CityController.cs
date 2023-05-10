@@ -31,6 +31,8 @@ namespace Travel.API.Controllers
         {
             return Ok(await _cityService.GetCityByName(CityName));
         }
+
+
         [HttpGet("GetAllHotelsByCityName")]
         public async Task<IActionResult> GetAllHotelsByCityName(string CityName)
         {

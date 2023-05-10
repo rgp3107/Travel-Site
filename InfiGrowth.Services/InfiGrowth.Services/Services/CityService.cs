@@ -28,6 +28,7 @@ namespace InfiGrowth.Services.Services
             return _cityRepository.GetAllCities();
         }
 
+
         public Task<List<Hotel>> GetAllHotelsByCityId(Guid cityId)
         {
             return _cityRepository.GetAllHotelsByCityId(cityId);
