@@ -95,8 +95,6 @@ namespace InfiGrowth.Infra.Repository
                         join c in _context.Cities on h.CityId equals c.CityId
                         where c.CityName == cityName
                         select h ;
-            //var city = GetCityByName(cityName).Result;
-            //return await _context.Hotels.Where(x=>x.CityId==city.CityId).Take(50).ToListAsync();
             return query.ToList();
             
         }

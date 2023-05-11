@@ -12,7 +12,7 @@ namespace InfiGrowth.Entity.Manage
         public Guid BookingId { get; set; }
         public Guid HotelId { get; set; }
         [ForeignKey("HotelId")]
-        public virtual Hotel Hotel { get; set; }
+        //public virtual Hotel Hotel { get; set; }
         public Guid BillingId { get; set; }
         [ForeignKey("BillingId")]
         public virtual Billing Billing { get; set; }

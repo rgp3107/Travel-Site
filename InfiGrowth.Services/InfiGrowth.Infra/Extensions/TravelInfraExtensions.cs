@@ -25,6 +25,7 @@ namespace InfiGrowth.Infra.Extensions
             builder.AddScoped<IHotelRepository, HotelRepository>();
             builder.AddScoped<ICityRepository, CityRepository>();
             builder.AddScoped<IBillingRepository, BillingRepository>();
+            builder.AddScoped<IBookingRepository, BookingRepository>();
 
 
             return builder;
@@ -45,6 +46,7 @@ namespace InfiGrowth.Infra.Extensions
             builder.AddTransient<IHotelRepository, HotelRepository>();
             builder.AddTransient<ICityRepository,CityRepository>();
             builder.AddTransient<IBillingRepository,BillingRepository>();
+            builder.AddTransient<IBookingRepository,BookingRepository>();
 
             return builder;
 

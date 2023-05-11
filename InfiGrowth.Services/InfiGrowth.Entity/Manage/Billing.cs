@@ -12,7 +12,7 @@ namespace InfiGrowth.Entity.Manage
         public Guid BillingId { get; set; }
         public Guid Id { get; set; }
         [ForeignKey("Id")]
-        public virtual Customer Customer { get; set; }
+        
         public DateTime Date { get; set; }
         public string PaymentType { get;set; }
         public double Tax { get; set; } = 500;

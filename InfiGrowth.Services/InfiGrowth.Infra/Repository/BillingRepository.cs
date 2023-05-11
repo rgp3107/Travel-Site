@@ -27,7 +27,7 @@ namespace InfiGrowth.Infra.Repository
 
         public async Task<Billing> DeleteBill(Guid billId)
         {
-            var result = await _context.Billings.FirstOrDefaultAsync(x => x.Id == billId);
+            var result = await _context.Billings.FirstOrDefaultAsync(x => x.BillingId == billId);
 
             _context.Billings.Remove(result);
             await _context.SaveChangesAsync();
