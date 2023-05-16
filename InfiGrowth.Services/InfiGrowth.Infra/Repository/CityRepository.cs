@@ -104,5 +104,10 @@ namespace InfiGrowth.Infra.Repository
            return await _context.Cities.Where(x => x.CityName.ToLower() == city.ToLower()).FirstOrDefaultAsync();
             
         }
+
+        public async Task<List<City>> GetTopCities()
+        {
+            return await _context.Cities.Where(x=>x.Population>1000).ToListAsync();
+        }
     }
 }

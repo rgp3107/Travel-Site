@@ -16,6 +16,7 @@ namespace InfiGrowth.Infra.Repository.Interfaces
         Task<List<City>> CreateMultipleCity();
 
         Task<City> GetCityByName(string city);
+        Task<List<City>> GetTopCities();
 
         Task<List<Hotel>> GetAllHotelsByCityId(Guid cityId);
 
