@@ -75,6 +75,18 @@ namespace InfiGrowth.Infra.Repository
             return await _context.Cities.Include(x=>x.country).ToListAsync();
         }
 
+        public async Task<List<string>> GetAllCityNames()
+        {
+            var result = _context.Cities.ToList();
+            List<string> cityList = new List<string>();
+            foreach(var item in result)
+            {
+                cityList.Add(item.CityName);
+            }
+            return cityList ;
+            
+        }
+
         public Task<List<Experience>> GetAllExperienceByCityId(Guid cityId)
         {
             throw new NotImplementedException();

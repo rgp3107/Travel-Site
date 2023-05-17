@@ -48,5 +48,10 @@ namespace Travel.API.Controllers
         {
             return Ok(await _cityService.GetAllTopCities());
         }
+        [HttpGet("GetALLCityNames")]
+        public async Task<IActionResult> GetAllCityNames()
+        {
+            return Ok(await _cityService.GetAllCityNames());
+        }
     }
 }

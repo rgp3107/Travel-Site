@@ -23,6 +23,7 @@ namespace InfiGrowth.Infra.Repository.Interfaces
         Task<List<Hotel>> GetAllHotelsByCityName(string cityName);
 
         Task<List<Experience>> GetAllExperienceByCityId(Guid cityId);
+        Task<List<string>> GetAllCityNames();
 
     }
 }
