@@ -1,4 +1,5 @@
-﻿using InfiGrowth.Infra.Context;
+﻿using Alachisoft.NCache.EntityFrameworkCore;
+using InfiGrowth.Infra.Context;
 using InfiGrowth.Infra.Repository;
 using InfiGrowth.Infra.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,9 @@ namespace InfiGrowth.Infra.Extensions
             var connectionString = configuration.GetConnectionString("TravelConnectionString");
 
             builder.AddDbContext<TravelContext>(options => {
+                string cacheId = "myClusteredCache";
+                NCacheConfiguration.Configure(cacheId, DependencyType.SqlServer);
+                NCacheConfiguration.ConfigureLogger();
                 options.UseSqlServer(connectionString);
                 options.EnableSensitiveDataLogging(true);
             });

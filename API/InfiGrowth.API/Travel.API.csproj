@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="EntityFrameworkCore.NCache" Version="5.3.0" />
     <PackageReference Include="Google.Apis.AnalyticsReporting.v4" Version="1.56.0.2484" />
     <PackageReference Include="Google.Apis.Auth" Version="1.56.0" />
     <PackageReference Include="Google.Apis.Sheets.v4" Version="1.56.0.2623" />

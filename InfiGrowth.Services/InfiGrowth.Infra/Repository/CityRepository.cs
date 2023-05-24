@@ -1,4 +1,5 @@
-﻿using InfiGrowth.Entity.Manage;
+﻿using Alachisoft.NCache.EntityFrameworkCore;
+using InfiGrowth.Entity.Manage;
 using InfiGrowth.Infra.Context;
 using InfiGrowth.Infra.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace InfiGrowth.Infra.Repository
 {
+
     public class CityRepository:ICityRepository
     {
         private readonly TravelContext _context;
@@ -72,6 +74,7 @@ namespace InfiGrowth.Infra.Repository
             //    }
 
             //}
+
             return await _context.Cities.Include(x=>x.country).ToListAsync();
         }
 
@@ -83,6 +86,8 @@ namespace InfiGrowth.Infra.Repository
             {
                 cityList.Add(item.CityName);
             }
+
+
             return cityList ;
             
         }
@@ -103,11 +108,16 @@ namespace InfiGrowth.Infra.Repository
         public async Task<List<Hotel>> GetAllHotelsByCityName(string cityName)
         {
 
-            var query = from h in _context.Hotels
+            
+            CachingOptions cachingOptions = new CachingOptions
+            {
+                StoreAs = StoreAs.SeperateEntities
+            };
+            var query = (from h in _context.Hotels
                         join c in _context.Cities on h.CityId equals c.CityId
                         where c.CityName == cityName
-                        select h ;
-            return query.ToList();
+                        select h).FromCache(cachingOptions).ToList();
+            return await Task.FromResult(query);
             
         }
 

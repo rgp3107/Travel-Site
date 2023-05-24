@@ -1,5 +1,6 @@
 ﻿using InfiGrowth.Entity.Manage;
 using InfiGrowth.Services.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,8 +8,10 @@ namespace Travel.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CityController : ControllerBase
     {
+        
         private readonly ICityService _cityService;
 
         public CityController(ICityService cityService)

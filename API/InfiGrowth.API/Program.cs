@@ -42,6 +42,7 @@ builder.Services.InfiGrowthInfraServiceRegistration(builder.Configuration);
 builder.Services.InfiGrowthInfraService();
 builder.Services.AddMemoryCache();
 
+
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
